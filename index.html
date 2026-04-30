@@ -13,8 +13,11 @@ body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--light);color:v
 nav{background:rgba(247,246,255,0.97);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0.9rem 2rem;position:sticky;top:0;z-index:100}
 .logo{font-size:1.25rem;font-weight:800;color:var(--ink)}.logo span{color:var(--violet)}.logo sup{font-size:0.55rem;background:var(--violet);color:#fff;padding:1px 5px;border-radius:4px;vertical-align:super;margin-left:2px}
 .nav-links{display:flex;gap:1.5rem;list-style:none}.nav-links a{font-size:0.83rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color 0.2s}.nav-links a:hover{color:var(--violet)}
+.nav-right{display:flex;align-items:center;gap:1rem}
 .nav-cta{background:var(--violet);color:#fff;padding:0.5rem 1.3rem;border-radius:50px;font-size:0.82rem;font-weight:600;border:none;cursor:pointer;transition:opacity 0.15s}
 .nav-cta:hover{opacity:0.88}
+.btn-login{background:transparent;color:var(--violet);border:1px solid var(--violet);padding:0.4rem 1rem;border-radius:50px;font-size:0.82rem;font-weight:600;cursor:pointer;transition:all 0.2s}
+.btn-login:hover{background:var(--violet);color:#fff}
 .hero{background:var(--ink);padding:5rem 2rem 4rem;position:relative;overflow:hidden;text-align:center}
 .hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:rgba(108,71,255,0.18);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none}
 .hero-inner{position:relative;z-index:1;max-width:780px;margin:0 auto}
@@ -98,7 +101,31 @@ footer{background:var(--ink);padding:3.5rem 2rem 1.5rem}
 .wa-float:hover{transform:scale(1.1) !important;animation:none}
 .toast-msg{position:fixed;bottom:100px;right:28px;z-index:1000;background:#1c1c30;color:#fff;padding:0.7rem 1.2rem;border-radius:12px;font-size:0.8rem;font-weight:500;transform:translateY(20px);opacity:0;transition:all 0.3s;pointer-events:none;border:1px solid rgba(108,71,255,0.3)}
 .toast-msg.on{transform:translateY(0);opacity:1}
-@media(max-width:720px){h1{font-size:2.1rem}.steps,.plans-grid,.contact-grid,.foot-grid{grid-template-columns:1fr}.crow{grid-template-columns:1fr}nav .nav-links{display:none}.hero-nums{gap:1.2rem}}
+.modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:2000;align-items:center;justify-content:center}
+.modal.active{display:flex}
+.modal-content{background:#fff;border-radius:20px;padding:2.5rem;max-width:450px;width:90%;box-shadow:0 10px 40px rgba(0,0,0,0.2)}
+.modal-content h3{font-size:1.8rem;font-weight:900;margin-bottom:0.5rem;color:var(--ink)}
+.modal-content p{color:var(--muted);margin-bottom:1.5rem;line-height:1.6}
+.modal-content input{width:100%;padding:0.8rem;border:1px solid var(--border);border-radius:12px;font-size:0.9rem;margin-bottom:1rem;outline:none;transition:border-color 0.2s}
+.modal-content input:focus{border-color:var(--violet)}
+.modal-btns{display:flex;gap:1rem}
+.modal-btns button{flex:1;padding:0.8rem;border:none;border-radius:12px;font-weight:600;cursor:pointer;transition:opacity 0.2s}
+.btn-modal-login{background:var(--violet);color:#fff}
+.btn-modal-login:hover{opacity:0.88}
+.btn-modal-close{background:var(--light);color:var(--muted)}
+.btn-modal-close:hover{opacity:0.8}
+.ai-section{background:linear-gradient(135deg,rgba(108,71,255,0.1),rgba(0,212,200,0.1));padding:2rem;border-radius:16px;margin-top:2rem;display:none}
+.ai-section.active{display:block}
+.ai-chat{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1rem;margin-bottom:1rem;min-height:300px;max-height:400px;overflow-y:auto;display:flex;flex-direction:column;gap:0.8rem}
+.ai-message{padding:0.8rem;border-radius:10px;max-width:80%;word-wrap:break-word}
+.ai-user{align-self:flex-end;background:var(--violet);color:#fff}
+.ai-bot{align-self:flex-start;background:var(--violet-soft);color:var(--ink)}
+.ai-input-group{display:flex;gap:0.5rem}
+.ai-input-group input{flex:1;padding:0.7rem;border:1px solid var(--border);border-radius:10px;outline:none;transition:border-color 0.2s}
+.ai-input-group input:focus{border-color:var(--violet)}
+.ai-input-group button{padding:0.7rem 1.5rem;background:var(--violet);color:#fff;border:none;border-radius:10px;font-weight:600;cursor:pointer;transition:opacity 0.2s}
+.ai-input-group button:hover{opacity:0.88}
+@media(max-width:720px){h1{font-size:2.1rem}.steps,.plans-grid,.contact-grid,.foot-grid{grid-template-columns:1fr}.crow{grid-template-columns:1fr}nav .nav-links{display:none}.hero-nums{gap:1.2rem}.modal-content{width:95%}.ai-chat{max-height:250px}}
   </style>
 </head>
 <body>
@@ -110,7 +137,10 @@ footer{background:var(--ink);padding:3.5rem 2rem 1.5rem}
     <li><a href="#planos">Planos</a></li>
     <li><a href="#contato">Contato</a></li>
   </ul>
-  <button class="nav-cta" onclick="wa('Olá! Quero criar meu site com a Business IA.')">Criar meu site</button>
+  <div class="nav-right">
+    <button class="btn-login" onclick="abrirModal()">IA Chat 🤖</button>
+    <button class="nav-cta" onclick="wa('Olá! Quero criar meu site com a Business IA.')">Criar meu site</button>
+  </div>
 </nav>
 
 <section class="hero" id="inicio">
@@ -190,11 +220,11 @@ footer{background:var(--ink);padding:3.5rem 2rem 1.5rem}
         <div class="cinfo-list">
           <div class="cinfo-card">
             <div class="cinfo-icon">📞</div>
-            <div><strong>Telefone</strong><span>(31) 99999-0000</span></div>
+            <div><strong>Telefone</strong><span>(32) 99936-9944</span></div>
           </div>
           <div class="cinfo-card" onclick="wa('Olá! Vim pelo site da Business IA.')">
             <div class="cinfo-icon">💬</div>
-            <div><strong>WhatsApp</strong><a href="#">(31) 99999-0000 — Clique para abrir</a></div>
+            <div><strong>WhatsApp</strong><a href="#">(32) 99936-9944 — Clique para abrir</a></div>
           </div>
           <div class="cinfo-card">
             <div class="cinfo-icon">✉️</div>
@@ -217,7 +247,7 @@ footer{background:var(--ink);padding:3.5rem 2rem 1.5rem}
       <div class="cform">
         <div class="crow">
           <div class="cf"><label>Seu nome</label><input id="cn" type="text" placeholder="Ex: João Silva"/></div>
-          <div class="cf"><label>WhatsApp</label><input id="cp" type="tel" placeholder="(31) 99999-9999"/></div>
+          <div class="cf"><label>WhatsApp</label><input id="cp" type="tel" placeholder="(32) 99936-9944"/></div>
         </div>
         <div class="cf"><label>Tipo de negócio</label>
           <select id="ct"><option value="">Selecione...</option><option>Restaurante / Food</option><option>Salão / Estética</option><option>Clínica / Saúde</option><option>Loja / E-commerce</option><option>Advocacia / Contabilidade</option><option>Automotivo</option><option>Educação / Cursos</option><option>Outros</option></select>
@@ -240,7 +270,7 @@ footer{background:var(--ink);padding:3.5rem 2rem 1.5rem}
     </div>
     <div class="foot-col"><h5>Navegação</h5><ul class="foot-links"><li><a href="#inicio">Início</a></li><li><a href="#como">Como funciona</a></li><li><a href="#planos">Planos</a></li><li><a href="#contato">Contato</a></li></ul></div>
     <div class="foot-col"><h5>Serviços</h5><ul class="foot-links"><li><a href="#">Landing Pages</a></li><li><a href="#">Sites Completos</a></li><li><a href="#">E-commerce</a></li><li><a href="#">Manutenção</a></li></ul></div>
-    <div class="foot-col"><h5>Contato</h5><ul class="foot-links"><li><a href="mailto:medmetodovendas@gmail.com">medmetodovendas@gmail.com</a></li><li><a href="#">(31) 99999-0000</a></li><li><a href="#">WhatsApp 24h</a></li><li><a href="#">BH — Todo Brasil</a></li></ul></div>
+    <div class="foot-col"><h5>Contato</h5><ul class="foot-links"><li><a href="mailto:medmetodovendas@gmail.com">medmetodovendas@gmail.com</a></li><li><a href="#">(32) 99936-9944</a></li><li><a href="#">WhatsApp 24h</a></li><li><a href="#">BH — Todo Brasil</a></li></ul></div>
   </div>
   <div class="foot-bottom">
     <span class="foot-copy">© 2025 Business IA — Todos os direitos reservados</span>
@@ -248,13 +278,46 @@ footer{background:var(--ink);padding:3.5rem 2rem 1.5rem}
   </div>
 </footer>
 
+<!-- MODAL DE LOGIN -->
+<div id="loginModal" class="modal">
+  <div class="modal-content">
+    <h3>🤖 IA Chat da Business</h3>
+    <p>Faça login com seu email para acessar o assistente de IA</p>
+    <input type="email" id="emailInput" placeholder="seu@email.com" />
+    <div class="modal-btns">
+      <button class="btn-modal-login" onclick="fazerLogin()">Acessar IA</button>
+      <button class="btn-modal-close" onclick="fecharModal()">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- SEÇÃO AI CHAT (após login) -->
+<section class="ai-section" id="aiSection">
+  <div class="container">
+    <div style="background:#fff;border-radius:16px;padding:1.5rem;border:1px solid var(--border)">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:1rem">
+        <h3 style="font-size:1.3rem;font-weight:800">🤖 Assistente de IA - Business</h3>
+        <button onclick="fazerLogout()" style="background:#f0f0f0;border:none;padding:0.5rem 1rem;border-radius:8px;cursor:pointer;font-weight:600">Sair</button>
+      </div>
+      <div class="ai-chat" id="aiChat"></div>
+      <div class="ai-input-group">
+        <input type="text" id="aiInput" placeholder="Faça uma pergunta sobre seus sites..." onkeypress="if(event.key==='Enter')enviarMensagemIA()"/>
+        <button onclick="enviarMensagemIA()">Enviar</button>
+      </div>
+      <div style="font-size:0.75rem;color:var(--muted);margin-top:0.8rem;text-align:center">
+        ℹ️ IA Integrada | Email: <span id="emailDisplay"></span> | Armazenamento Local
+      </div>
+    </div>
+  </div>
+</section>
+
 <button class="wa-float" onclick="wa('Olá! Vim pelo site da Business IA e quero criar meu site.')">
   <svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
 </button>
 <div class="toast-msg" id="toast">Abrindo WhatsApp...</div>
 
 <script>
-const NUM='5531999990000';
+const NUM='32999369944';
 function wa(msg){window.open('https://wa.me/'+NUM+'?text='+encodeURIComponent(msg),'_blank');const t=document.getElementById('toast');t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2800)}
 function scrollSec(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'})}
 function enviar(){
@@ -271,6 +334,60 @@ function enviar(){
   if(pl)txt+='*Plano:* '+pl+'\n';
   if(m)txt+='*Mensagem:* '+m+'\n';
   wa(txt);
+}
+
+function abrirModal(){document.getElementById('loginModal').classList.add('active')}
+function fecharModal(){document.getElementById('loginModal').classList.remove('active')}
+function fazerLogin(){
+  const email=document.getElementById('emailInput').value.trim();
+  if(!email||!email.includes('@')){alert('Email inválido');return;}
+  if(email!=='medmetodovendas@gmail.com'){alert('Acesso restrito. Use: medmetodovendas@gmail.com');return;}
+  localStorage.setItem('aiUserEmail',email);
+  document.getElementById('emailDisplay').textContent=email;
+  fecharModal();
+  document.getElementById('aiSection').classList.add('active');
+  adicionarMensagemIA('Olá! Bem-vindo ao assistente de IA da Business 👋\n\nComo posso ajudar você hoje?');
+}
+function fazerLogout(){
+  localStorage.removeItem('aiUserEmail');
+  document.getElementById('aiSection').classList.remove('active');
+  document.getElementById('aiChat').innerHTML='';
+  document.getElementById('emailInput').value='';
+  abrirModal();
+}
+function adicionarMensagemIA(msg,usuario=false){
+  const chat=document.getElementById('aiChat');
+  const div=document.createElement('div');
+  div.className='ai-message '+(usuario?'ai-user':'ai-bot');
+  div.textContent=msg;
+  chat.appendChild(div);
+  chat.scrollTop=chat.scrollHeight;
+}
+function enviarMensagemIA(){
+  const input=document.getElementById('aiInput');
+  const msg=input.value.trim();
+  if(!msg)return;
+  adicionarMensagemIA(msg,true);
+  input.value='';
+  setTimeout(()=>{
+    const respostas=[
+      'Ótima pergunta! Nossos planos variam de R$497 a R$1.997 conforme a complexidade do site.',
+      'Entregamos sites em média 48 horas. O tempo exato depende da complexidade do projeto.',
+      'Sim! Todos os nossos planos incluem hospedagem, domínio e suporte técnico.',
+      'Aceito contato via WhatsApp para discutir especificidades do seu projeto.',
+      'O plano Profissional é o mais popular! Inclui até 5 páginas e SEO local.',
+      'Oferecemos revisões ilimitadas até você ficar 100% satisfeito.',
+      'Integramos WhatsApp, formulários, Google Maps, e muito mais!',
+      'Posso ajudar com informações sobre preços, serviços, ou agendar uma consultoria!'
+    ];
+    const resp=respostas[Math.floor(Math.random()*respostas.length)];
+    adicionarMensagemIA('🤖 '+resp);
+  },800);
+}
+if(localStorage.getItem('aiUserEmail')){
+  document.getElementById('emailDisplay').textContent=localStorage.getItem('aiUserEmail');
+  document.getElementById('aiSection').classList.add('active');
+  adicionarMensagemIA('Bem-vindo de volta! 👋 Como posso ajudar?');
 }
 </script>
 
