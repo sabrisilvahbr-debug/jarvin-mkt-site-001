@@ -3,120 +3,276 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Consultoria de Marketing Digital - Soluções modernas e eficazes para o crescimento da sua empresa.">
-  <title>Consultoria de Marketing Digital</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Business IA — Sites Profissionais com IA em 48h</title>
+  <meta name="description" content="Criamos sites profissionais para seu negócio usando IA. Design premium, integração WhatsApp, entrega rápida. De R$ 497.">
+  <meta name="theme-color" content="#6c47ff">
   <style>
-    body {
-      scroll-behavior: smooth;
-    }
-    header {
-      background: linear-gradient(90deg, #4F46E5, #3B82F6);
-    }
-    .btn-gradient {
-      background: linear-gradient(90deg, #10B981, #34D399);
-    }
-    .btn-gradient:hover {
-      background: linear-gradient(90deg, #059669, #10B981);
-    }
-    .fade-in {
-      opacity: 0;
-      animation: fadeIn 1.2s ease-in forwards;
-    }
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
-      }
-    }
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--ink:#0a0a14;--violet:#6c47ff;--violet2:#8b6aff;--violet-soft:#ede9ff;--cyan:#00d4c8;--light:#f7f6ff;--white:#fff;--muted:#6b6b88;--border:rgba(108,71,255,0.12);--green:#25d366}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--light);color:var(--ink)}
+nav{background:rgba(247,246,255,0.97);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0.9rem 2rem;position:sticky;top:0;z-index:100}
+.logo{font-size:1.25rem;font-weight:800;color:var(--ink)}.logo span{color:var(--violet)}.logo sup{font-size:0.55rem;background:var(--violet);color:#fff;padding:1px 5px;border-radius:4px;vertical-align:super;margin-left:2px}
+.nav-links{display:flex;gap:1.5rem;list-style:none}.nav-links a{font-size:0.83rem;font-weight:500;color:var(--muted);text-decoration:none;transition:color 0.2s}.nav-links a:hover{color:var(--violet)}
+.nav-cta{background:var(--violet);color:#fff;padding:0.5rem 1.3rem;border-radius:50px;font-size:0.82rem;font-weight:600;border:none;cursor:pointer;transition:opacity 0.15s}
+.nav-cta:hover{opacity:0.88}
+.hero{background:var(--ink);padding:5rem 2rem 4rem;position:relative;overflow:hidden;text-align:center}
+.hero::before{content:'';position:absolute;width:600px;height:600px;border-radius:50%;background:rgba(108,71,255,0.18);top:-200px;left:50%;transform:translateX(-50%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:780px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(108,71,255,0.18);color:var(--violet2);border:1px solid rgba(108,71,255,0.35);padding:0.35rem 1rem;border-radius:50px;font-size:0.75rem;font-weight:600;letter-spacing:0.5px;margin-bottom:1.8rem;text-transform:uppercase}
+.dot{width:7px;height:7px;background:var(--cyan);border-radius:50%;display:inline-block;animation:blink 2s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+h1{font-size:3.2rem;font-weight:900;line-height:1.1;color:#fff;letter-spacing:-1.5px;margin-bottom:1.5rem}
+h1 em{font-style:normal;color:var(--violet2)}h1 .cyan{color:var(--cyan)}
+.hero-sub{font-size:1rem;color:rgba(255,255,255,0.55);line-height:1.75;max-width:560px;margin:0 auto 2.5rem;font-weight:300}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
+.btn-v{background:var(--violet);color:#fff;padding:0.9rem 2rem;border-radius:50px;font-weight:600;font-size:0.9rem;border:none;cursor:pointer;transition:opacity 0.15s,transform 0.1s;display:inline-flex;align-items:center;gap:8px}
+.btn-v:hover{opacity:0.88;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#fff;padding:0.9rem 2rem;border-radius:50px;font-weight:500;font-size:0.9rem;border:1px solid rgba(255,255,255,0.25);cursor:pointer;transition:background 0.15s;display:inline-flex;align-items:center;gap:8px}
+.btn-ghost:hover{background:rgba(255,255,255,0.08)}
+.hero-nums{display:flex;gap:3rem;justify-content:center}
+.hnum-val{font-size:2rem;font-weight:900;color:#fff;letter-spacing:-1px;display:block}.hnum-val span{color:var(--violet2)}
+.hnum-label{font-size:0.72rem;color:rgba(255,255,255,0.4);letter-spacing:0.3px;margin-top:3px;display:block}
+section{padding:5rem 2rem}.container{max-width:1080px;margin:0 auto}
+.tag{display:inline-block;background:var(--violet-soft);color:#4a2fe0;padding:0.28rem 0.9rem;border-radius:50px;font-size:0.72rem;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;margin-bottom:0.9rem}
+h2.sec-title{font-size:2.1rem;font-weight:900;letter-spacing:-0.8px;line-height:1.15;margin-bottom:0.7rem}
+p.sec-sub{color:var(--muted);font-size:0.93rem;line-height:1.7;max-width:500px}
+.how-bg{background:var(--white)}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:3rem}
+.step-card{border:1px solid var(--border);border-radius:16px;padding:1.6rem 1.4rem;background:#fff;position:relative;overflow:hidden;transition:transform 0.2s,border-color 0.2s}
+.step-card:hover{transform:translateY(-4px);border-color:var(--violet)}
+.step-num{font-size:3rem;font-weight:900;color:rgba(108,71,255,0.08);position:absolute;top:0.5rem;right:1rem;line-height:1}
+.step-icon{width:42px;height:42px;border-radius:12px;background:var(--violet-soft);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:1rem}
+.step-card h4{font-size:0.95rem;font-weight:700;margin-bottom:0.4rem}
+.step-card p{font-size:0.8rem;color:var(--muted);line-height:1.6}
+.step-badge{display:inline-block;background:var(--ink);color:#fff;font-size:0.68rem;font-weight:600;padding:2px 8px;border-radius:50px;margin-top:0.8rem}
+.plans-bg{background:var(--light)}
+.plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.plan-card{border:1px solid var(--border);border-radius:20px;padding:2rem;background:#fff;transition:transform 0.2s}
+.plan-card:hover{transform:translateY(-4px)}
+.plan-card.featured{border:2px solid var(--violet);position:relative}
+.plan-pop{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--violet);color:#fff;font-size:0.7rem;font-weight:700;padding:3px 14px;border-radius:50px;white-space:nowrap}
+.plan-name{font-size:0.78rem;font-weight:700;color:var(--violet);text-transform:uppercase;letter-spacing:0.8px;margin-bottom:0.6rem}
+.plan-price{font-size:2.2rem;font-weight:900;letter-spacing:-1px;color:var(--ink);margin-bottom:0.3rem}
+.plan-price sup{font-size:1rem;vertical-align:top;margin-top:6px;display:inline-block;font-weight:600}
+.plan-price span{font-size:0.8rem;font-weight:400;color:var(--muted)}
+.plan-desc{font-size:0.82rem;color:var(--muted);margin-bottom:1.5rem;line-height:1.6}
+.plan-features{list-style:none;display:flex;flex-direction:column;gap:0.6rem;margin-bottom:1.8rem}
+.plan-features li{font-size:0.82rem;color:var(--ink);display:flex;align-items:center;gap:8px}
+.plan-features li::before{content:'';width:16px;height:16px;border-radius:50%;background:var(--violet-soft);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;background-image:url("data:image/svg+xml,%3Csvg width='10' height='8' viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l2.5 2.5L9 1' stroke='%236c47ff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+.btn-plan{width:100%;padding:0.85rem;border-radius:12px;font-size:0.88rem;font-weight:600;cursor:pointer;border:none;transition:opacity 0.15s,transform 0.1s}
+.btn-plan:hover{opacity:0.88;transform:translateY(-1px)}
+.btn-plan-main{background:var(--violet);color:#fff}
+.btn-plan-outline{background:transparent;color:var(--violet);border:1px solid var(--violet) !important}
+.contact-bg{background:var(--white)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:3rem;align-items:start}
+.cinfo-list{display:flex;flex-direction:column;gap:0.9rem}
+.cinfo-card{display:flex;align-items:flex-start;gap:13px;padding:1.1rem 1.2rem;border:1px solid var(--border);border-radius:14px;transition:border-color 0.2s,transform 0.15s;cursor:pointer}
+.cinfo-card:hover{border-color:var(--violet);transform:translateX(4px)}
+.cinfo-icon{width:40px;height:40px;border-radius:10px;background:var(--violet-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:17px}
+.cinfo-card strong{display:block;font-size:0.7rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.4px;margin-bottom:3px}
+.cinfo-card span,.cinfo-card a{font-size:0.88rem;color:var(--ink);text-decoration:none}
+.cinfo-card a{color:var(--violet);font-weight:500}
+.wa-main{width:100%;margin-top:0.3rem;padding:1rem;border-radius:13px;background:var(--green);color:#fff;font-size:0.92rem;font-weight:600;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:10px;transition:opacity 0.15s,transform 0.1s}
+.wa-main:hover{opacity:0.9;transform:translateY(-1px)}
+.cform{display:flex;flex-direction:column;gap:0.9rem}
+.crow{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem}
+.cf{display:flex;flex-direction:column;gap:5px}
+.cf label{font-size:0.72rem;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:0.3px}
+.cf input,.cf select,.cf textarea{padding:0.7rem 0.9rem;border:1px solid rgba(108,71,255,0.15);border-radius:10px;font-size:0.86rem;color:var(--ink);background:var(--light);outline:none;font-family:inherit;transition:border-color 0.2s}
+.cf input:focus,.cf select:focus,.cf textarea:focus{border-color:var(--violet)}
+.cf textarea{resize:vertical;min-height:90px}
+.btn-send{width:100%;padding:0.9rem;background:var(--ink);color:#fff;border:none;border-radius:12px;font-size:0.9rem;font-weight:600;cursor:pointer;transition:background 0.15s,transform 0.1s;display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-send:hover{background:var(--violet);transform:translateY(-1px)}
+footer{background:var(--ink);padding:3.5rem 2rem 1.5rem}
+.foot-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2rem;max-width:1080px;margin:0 auto;padding-bottom:2.5rem;border-bottom:1px solid rgba(255,255,255,0.07)}
+.foot-logo{font-size:1.3rem;font-weight:800;color:#fff;margin-bottom:0.7rem}.foot-logo span{color:var(--violet2)}
+.foot-desc{font-size:0.8rem;color:rgba(255,255,255,0.4);line-height:1.75;max-width:240px}
+.foot-col h5{font-size:0.72rem;font-weight:700;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:0.6px;margin-bottom:1rem}
+.foot-links{list-style:none;display:flex;flex-direction:column;gap:0.5rem}
+.foot-links a{font-size:0.8rem;color:rgba(255,255,255,0.38);text-decoration:none;transition:color 0.2s}
+.foot-links a:hover{color:var(--violet2)}
+.foot-bottom{max-width:1080px;margin:1.5rem auto 0;display:flex;justify-content:space-between;align-items:center}
+.foot-copy{font-size:0.73rem;color:rgba(255,255,255,0.22)}
+.wa-float{position:fixed;bottom:28px;right:28px;z-index:999;width:58px;height:58px;border-radius:50%;background:var(--green);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,0.4);animation:floatbob 3s ease-in-out infinite}
+@keyframes floatbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.wa-float:hover{transform:scale(1.1) !important;animation:none}
+.toast-msg{position:fixed;bottom:100px;right:28px;z-index:1000;background:#1c1c30;color:#fff;padding:0.7rem 1.2rem;border-radius:12px;font-size:0.8rem;font-weight:500;transform:translateY(20px);opacity:0;transition:all 0.3s;pointer-events:none;border:1px solid rgba(108,71,255,0.3)}
+.toast-msg.on{transform:translateY(0);opacity:1}
+@media(max-width:720px){h1{font-size:2.1rem}.steps,.plans-grid,.contact-grid,.foot-grid{grid-template-columns:1fr}.crow{grid-template-columns:1fr}nav .nav-links{display:none}.hero-nums{gap:1.2rem}}
   </style>
 </head>
-<body class="antialiased bg-gray-50 text-gray-800">
-  <header class="text-white">
-    <div class="container mx-auto px-6 py-8 flex items-center justify-between">
-      <h1 class="text-3xl font-bold tracking-wide fade-in">Consultoria de Marketing Digital</h1>
-      <nav>
-        <ul class="flex space-x-4">
-          <li><a href="#sobre" class="hover:underline">Sobre</a></li>
-          <li><a href="#servicos" class="hover:underline">Serviços</a></li>
-          <li><a href="#contato" class="hover:underline">Contato</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<body>
 
-  <section id="hero" class="fade-in mt-12">
-    <div class="container mx-auto px-6 text-center">
-      <h2 class="text-4xl font-bold text-gray-800 leading-tight">Transformando Ideias em Sucesso</h2>
-      <p class="text-lg text-gray-600 mt-4">Soluções modernas e estratégicas para impulsionar o crescimento do seu negócio.</p>
-      <a href="#contato" class="btn-gradient text-white py-3 px-6 mt-6 inline-block rounded-full shadow-lg text-lg font-semibold">Entre em Contato</a>
-    </div>
-  </section>
+<nav>
+  <div class="logo">Business<span>IA</span><sup>AI</sup></div>
+  <ul class="nav-links">
+    <li><a href="#como">Como funciona</a></li>
+    <li><a href="#planos">Planos</a></li>
+    <li><a href="#contato">Contato</a></li>
+  </ul>
+  <button class="nav-cta" onclick="wa('Olá! Quero criar meu site com a Business IA.')">Criar meu site</button>
+</nav>
 
-  <section id="sobre" class="mt-16">
-    <div class="container mx-auto px-6 text-center">
-      <h3 class="text-3xl font-bold text-gray-800">Sobre Nós</h3>
-      <p class="text-gray-600 mt-4 text-lg">Somos uma consultoria de marketing digital especializada em criar estratégias únicas para empresas que desejam expandir sua presença no mercado digital.</p>
+<section class="hero" id="inicio">
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="dot"></span> Powered by Inteligência Artificial</div>
+    <h1>Seu negócio merece<br>um site <em>profissional</em><br>criado com <span class="cyan">IA</span></h1>
+    <p class="hero-sub">Criamos sites completos para qualquer tipo de negócio — em tempo recorde, com design premium e integração direta com WhatsApp.</p>
+    <div class="hero-btns">
+      <button class="btn-v" onclick="wa('Olá! Quero criar meu site agora com a Business IA.')">
+        <svg viewBox="0 0 24 24" width="18" height="18" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Quero meu site agora
+      </button>
+      <button class="btn-ghost" onclick="scrollSec('planos')">Ver planos →</button>
     </div>
-  </section>
+    <div class="hero-nums">
+      <div><span class="hnum-val">+<span>120</span></span><span class="hnum-label">Sites publicados</span></div>
+      <div><span class="hnum-val"><span>48</span>h</span><span class="hnum-label">Entrega média</span></div>
+      <div><span class="hnum-val"><span>5</span>★</span><span class="hnum-label">Avaliação</span></div>
+      <div><span class="hnum-val"><span>98</span>%</span><span class="hnum-label">Satisfação</span></div>
+    </div>
+  </div>
+</section>
 
-  <section id="servicos" class="mt-16">
-    <div class="container mx-auto px-6">
-      <h3 class="text-3xl font-bold text-center text-gray-800">Serviços</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-        <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-          <h4 class="text-xl font-bold text-gray-800">Gestão de Redes Sociais</h4>
-          <p class="text-gray-600 mt-2">Criamos campanhas e conteúdos que engajam seu público, fazendo sua marca se destacar.</p>
-        </div>
-        <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-          <h4 class="text-xl font-bold text-gray-800">SEO e Otimização</h4>
-          <p class="text-gray-600 mt-2">Aumente a visibilidade do seu site nos motores de busca com estratégias de SEO eficazes.</p>
-        </div>
-        <div class="p-6 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300">
-          <h4 class="text-xl font-bold text-gray-800">Análise de Dados</h4>
-          <p class="text-gray-600 mt-2">Avaliação profunda de métricas para tomar decisões estratégicas baseadas em dados.</p>
-        </div>
+<section class="how-bg" id="como">
+  <div class="container">
+    <div class="tag">Como funciona</div>
+    <h2 class="sec-title">Do zero ao site publicado<br>em 4 passos simples</h2>
+    <p class="sec-sub">Processo 100% online, sem complicação. Você foca no negócio, a gente cuida do site.</p>
+    <div class="steps">
+      <div class="step-card"><div class="step-num">1</div><div class="step-icon">💬</div><h4>Nos chame no WhatsApp</h4><p>Conte sobre seu negócio e escolha o plano. Atendimento personalizado.</p><span class="step-badge">5 min</span></div>
+      <div class="step-card"><div class="step-num">2</div><div class="step-icon">🎨</div><h4>Criamos o design</h4><p>Nossa IA + equipe criam o layout exclusivo com identidade visual personalizada.</p><span class="step-badge">24h</span></div>
+      <div class="step-card"><div class="step-num">3</div><div class="step-icon">✏️</div><h4>Você revisa e aprova</h4><p>Enviamos o protótipo. Fazemos ajustes até você ficar 100% satisfeito.</p><span class="step-badge">Revisões ilimitadas</span></div>
+      <div class="step-card"><div class="step-num">4</div><div class="step-icon">🚀</div><h4>Site no ar!</h4><p>Publicamos com domínio, hospedagem e SSL. Seu negócio online e funcionando.</p><span class="step-badge">Publicado!</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="plans-bg" id="planos">
+  <div class="container">
+    <div class="tag">Planos e preços</div>
+    <h2 class="sec-title">Escolha o plano ideal<br>para o seu negócio</h2>
+    <p class="sec-sub">Preços acessíveis sem abrir mão da qualidade. Todos os planos incluem hospedagem e suporte.</p>
+    <div class="plans-grid">
+      <div class="plan-card">
+        <div class="plan-name">Starter</div>
+        <div class="plan-price"><sup>R$</sup>497<span>/único</span></div>
+        <p class="plan-desc">Perfeito para autônomos e pequenos negócios que precisam de presença online rápida.</p>
+        <ul class="plan-features"><li>Landing Page (1 página)</li><li>Design responsivo mobile</li><li>Botão WhatsApp integrado</li><li>Domínio .com.br por 1 ano</li><li>Hospedagem por 1 ano</li><li>Certificado SSL</li><li>Entrega em 48 horas</li></ul>
+        <button class="btn-plan btn-plan-outline" onclick="wa('Olá! Tenho interesse no plano Starter de R$497.')">Contratar Starter</button>
+      </div>
+      <div class="plan-card featured">
+        <div class="plan-pop">🔥 Mais popular</div>
+        <div class="plan-name">Profissional</div>
+        <div class="plan-price"><sup>R$</sup>997<span>/único</span></div>
+        <p class="plan-desc">Ideal para empresas que querem site completo com múltiplas páginas e recursos avançados.</p>
+        <ul class="plan-features"><li>Site completo (até 5 páginas)</li><li>Design exclusivo premium</li><li>WhatsApp + formulário de contato</li><li>Galeria de fotos/portfólio</li><li>Google Maps integrado</li><li>SEO local configurado</li><li>Domínio + hospedagem 1 ano</li><li>Suporte por 3 meses</li></ul>
+        <button class="btn-plan btn-plan-main" onclick="wa('Olá! Tenho interesse no plano Profissional de R$997.')">Contratar Profissional</button>
+      </div>
+      <div class="plan-card">
+        <div class="plan-name">Premium</div>
+        <div class="plan-price"><sup>R$</sup>1.997<span>/único</span></div>
+        <p class="plan-desc">Para negócios que querem o máximo: e-commerce, agendamento e painel administrativo.</p>
+        <ul class="plan-features"><li>Site completo ilimitado</li><li>Loja virtual (e-commerce)</li><li>Sistema de agendamento online</li><li>Blog integrado</li><li>Painel de administração</li><li>Integração redes sociais</li><li>Google Analytics</li><li>Suporte por 6 meses</li></ul>
+        <button class="btn-plan btn-plan-outline" onclick="wa('Olá! Tenho interesse no plano Premium de R$1.997.')">Contratar Premium</button>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section id="contato" class="mt-16 bg-gray-100 py-8">
-    <div class="container mx-auto px-6">
-      <h3 class="text-3xl font-bold text-center text-gray-800">Contato</h3>
-      <p class="text-gray-600 text-center mt-4">Entre em contato conosco e dê o próximo passo rumo ao sucesso!</p>
-      <form class="mt-8 max-w-md mx-auto">
-        <div class="mb-4">
-          <label for="nome" class="block text-gray-600">Nome</label>
-          <input type="text" id="nome" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring focus:ring-green-400">
+<section class="contact-bg" id="contato">
+  <div class="container">
+    <div class="tag">Fale conosco</div>
+    <h2 class="sec-title">Vamos criar seu site?</h2>
+    <p class="sec-sub">Entre em contato agora. Atendemos em Belo Horizonte e em todo o Brasil.</p>
+    <div class="contact-grid">
+      <div>
+        <div class="cinfo-list">
+          <div class="cinfo-card">
+            <div class="cinfo-icon">📞</div>
+            <div><strong>Telefone</strong><span>(31) 99999-0000</span></div>
+          </div>
+          <div class="cinfo-card" onclick="wa('Olá! Vim pelo site da Business IA.')">
+            <div class="cinfo-icon">💬</div>
+            <div><strong>WhatsApp</strong><a href="#">(31) 99999-0000 — Clique para abrir</a></div>
+          </div>
+          <div class="cinfo-card">
+            <div class="cinfo-icon">✉️</div>
+            <div><strong>E-mail</strong><a href="mailto:medmetodovendas@gmail.com">medmetodovendas@gmail.com</a></div>
+          </div>
+          <div class="cinfo-card">
+            <div class="cinfo-icon">📍</div>
+            <div><strong>Endereço</strong><span>Av. do Contorno, 6000 — Funcionários<br>Belo Horizonte, MG</span></div>
+          </div>
+          <div class="cinfo-card">
+            <div class="cinfo-icon">🕒</div>
+            <div><strong>Horário</strong><span>Seg–Sex: 09h às 18h · Sáb: 09h às 13h<br>WhatsApp disponível 24h</span></div>
+          </div>
         </div>
-        <div class="mb-4">
-          <label for="email" class="block text-gray-600">E-mail</label>
-          <input type="email" id="email" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring focus:ring-green-400">
+        <button class="wa-main" style="margin-top:1rem" onclick="wa('Olá! Quero criar meu site com a Business IA!')">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+          Iniciar conversa no WhatsApp
+        </button>
+      </div>
+      <div class="cform">
+        <div class="crow">
+          <div class="cf"><label>Seu nome</label><input id="cn" type="text" placeholder="Ex: João Silva"/></div>
+          <div class="cf"><label>WhatsApp</label><input id="cp" type="tel" placeholder="(31) 99999-9999"/></div>
         </div>
-        <div class="mb-4">
-          <label for="mensagem" class="block text-gray-600">Mensagem</label>
-          <textarea id="mensagem" rows="4" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring focus:ring-green-400"></textarea>
+        <div class="cf"><label>Tipo de negócio</label>
+          <select id="ct"><option value="">Selecione...</option><option>Restaurante / Food</option><option>Salão / Estética</option><option>Clínica / Saúde</option><option>Loja / E-commerce</option><option>Advocacia / Contabilidade</option><option>Automotivo</option><option>Educação / Cursos</option><option>Outros</option></select>
         </div>
-        <button type="submit" class="btn-gradient text-white py-3 px-6 rounded-lg shadow-lg font-semibold">Enviar</button>
-      </form>
+        <div class="cf"><label>Plano de interesse</label>
+          <select id="cpl"><option value="">Selecione...</option><option>Starter — R$ 497</option><option>Profissional — R$ 997</option><option>Premium — R$ 1.997</option><option>Não sei ainda</option></select>
+        </div>
+        <div class="cf"><label>Mensagem</label><textarea id="cm" placeholder="Descreva seu negócio, cidade, etc..."></textarea></div>
+        <button class="btn-send" onclick="enviar()">Enviar pelo WhatsApp ↗</button>
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer class="bg-gray-800 text-white py-6 mt-16">
-    <div class="container mx-auto px-6 text-center">
-      <p>&copy; 2023 Consultoria de Marketing Digital. Todos os direitos reservados.</p>
+<footer>
+  <div class="foot-grid">
+    <div>
+      <div class="foot-logo">Business<span>IA</span></div>
+      <p class="foot-desc">Criamos sites profissionais para qualquer negócio usando IA + design humano. Resultado rápido, preço justo.</p>
     </div>
-  </footer>
+    <div class="foot-col"><h5>Navegação</h5><ul class="foot-links"><li><a href="#inicio">Início</a></li><li><a href="#como">Como funciona</a></li><li><a href="#planos">Planos</a></li><li><a href="#contato">Contato</a></li></ul></div>
+    <div class="foot-col"><h5>Serviços</h5><ul class="foot-links"><li><a href="#">Landing Pages</a></li><li><a href="#">Sites Completos</a></li><li><a href="#">E-commerce</a></li><li><a href="#">Manutenção</a></li></ul></div>
+    <div class="foot-col"><h5>Contato</h5><ul class="foot-links"><li><a href="mailto:medmetodovendas@gmail.com">medmetodovendas@gmail.com</a></li><li><a href="#">(31) 99999-0000</a></li><li><a href="#">WhatsApp 24h</a></li><li><a href="#">BH — Todo Brasil</a></li></ul></div>
+  </div>
+  <div class="foot-bottom">
+    <span class="foot-copy">© 2025 Business IA — Todos os direitos reservados</span>
+    <span class="foot-copy">Belo Horizonte, MG</span>
+  </div>
+</footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const sections = document.querySelectorAll("section");
-      sections.forEach((section) => {
-        section.classList.add("fade-in");
-      });
-    });
-  </script>
+<button class="wa-float" onclick="wa('Olá! Vim pelo site da Business IA e quero criar meu site.')">
+  <svg viewBox="0 0 24 24" width="28" height="28" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</button>
+<div class="toast-msg" id="toast">Abrindo WhatsApp...</div>
+
+<script>
+const NUM='5531999990000';
+function wa(msg){window.open('https://wa.me/'+NUM+'?text='+encodeURIComponent(msg),'_blank');const t=document.getElementById('toast');t.classList.add('on');setTimeout(()=>t.classList.remove('on'),2800)}
+function scrollSec(id){const el=document.getElementById(id);if(el)el.scrollIntoView({behavior:'smooth'})}
+function enviar(){
+  const n=document.getElementById('cn').value.trim();
+  const p=document.getElementById('cp').value.trim();
+  const t=document.getElementById('ct').value;
+  const pl=document.getElementById('cpl').value;
+  const m=document.getElementById('cm').value.trim();
+  if(!n){alert('Por favor, informe seu nome.');return;}
+  let txt='Olá, Business IA! Quero criar meu site.\n\n';
+  txt+='*Nome:* '+n+'\n';
+  if(p)txt+='*WhatsApp:* '+p+'\n';
+  if(t)txt+='*Negócio:* '+t+'\n';
+  if(pl)txt+='*Plano:* '+pl+'\n';
+  if(m)txt+='*Mensagem:* '+m+'\n';
+  wa(txt);
+}
+</script>
+
 </body>
 </html>
